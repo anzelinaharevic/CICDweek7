@@ -42,4 +42,13 @@ public class PersonService {
 
     }
 
+    public Person delete(Long id) {
+
+        Person person = repo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Person Cannnot Be Found"));
+
+        repo.delete(person);
+        return person;
+    }
+
 }
